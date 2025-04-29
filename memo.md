@@ -11,4 +11,19 @@
 ## 時間・空間計算量 (step1)
 [ここ](https://github.com/nktr-cp/leetcode/blob/141_LinkedListCycle/memo.md)での考察と全く同様に，時間計算量がO(N logN)，空間計算量がO(N)ではないか．
 
+## 考えたこと (step2)
+これも時間計算量O(1)，空間計算量O(N)でできるようなので，考える．
+
+全然思いつかなかった．
+基本は，前問と同様フロイドの循環検出アルゴリズム．
+遅い方と早い方のポインタが合流する点は，周回に入るまでの長さを，周回の長さのモジュロをとったものであることが本質．
+
+説明は以下の図がわかりやすかった． (ただ，正確にはA=Cではなくて，A≡C (mod B+C)のはず？)
+
+https://leetcode.com/problems/linked-list-cycle-ii/solutions/6161294/video-3-solutions-two-pointer-set-and-recursion/
+
+この性質を使うと，始点から走らせたものとslowとfastの合流地点から走らせたものがちょうど周回の開始地点で合流する．
+
+## 時間・空間計算量
+空間計算量は明らかにO(1)，時間計算量はO(N)．
 
