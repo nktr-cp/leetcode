@@ -27,3 +27,17 @@ https://leetcode.com/problems/linked-list-cycle-ii/solutions/6161294/video-3-sol
 ## 時間・空間計算量
 空間計算量は明らかにO(1)，時間計算量はO(N)．
 
+## 考えたこと (step3)
+大体1分半くらいで同じコードが書けるようになった．
+
+ただ，毎回
+```cpp
+if (collision_node == nullptr)
+```
+にするか，
+```cpp
+if (!collision_node)
+```
+にするかで迷う．
+
+これどっちが読みやすいですか？
