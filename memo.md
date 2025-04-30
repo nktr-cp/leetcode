@@ -24,3 +24,40 @@ step2でなるべく頭を使わないで済むいい書き方がないかを探
 
 ## 時間・空間計算量 (step1)
 空間計算量はO(1)，時間計算量は各ループ内の処理がO(1)で終わるので，全体ではO(N)．
+
+## 考えたこと (step2)
+少なくとも，
+```cpp
+if (next_node == nullptr) {
+	current_node->next = nullptr;
+	return head;
+}
+
+current_node->next = next_node;
+```
+
+これは冗長で，
+```cpp
+current_node->next = next_node;
+```
+は共通で書いてしまって，
+
+```cpp
+if (next_node == nullptr) {
+	return head;
+}
+```
+もしくは
+```cpp
+if (next_node == nullptr) {
+	break;
+}
+```
+
+のほうがよい．
+returnは一箇所にまとめる方がわかりやすいと思ったので，下で書くことにした．
+
+外のwhileループをいつ抜けるのかが分かりにくいので，while(1)として，breakで抜けることを明示した．
+
+## 時間・空間計算量 (step2)
+リファクタリングしただけなので，変化なし．
