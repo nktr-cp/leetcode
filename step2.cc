@@ -12,15 +12,7 @@ class Solution {
                   continue;
               }
   
-              if (!close_brackets.contains(c)) {
-                  throw std::invalid_argument("Input string must consist only of '(){}[]'");
-              }
-  
-              if (unclosed_brackets.empty()) {
-                  return false;
-              }
-              
-              if (unclosed_brackets.top() != close_to_open.at(c)) {
+              if (unclosed_brackets.empty() || unclosed_brackets.top() != close_to_open.at(c)) {
                   return false;
               }
               unclosed_brackets.pop();
