@@ -75,3 +75,8 @@ https://cpprefjp.github.io/reference/string/basic_string/contains.html
 https://hayapenguin.com/notes/LeetCode/20/ValidParentheses
 
 以上を踏まえて書き直した．
+
+## 考えたこと (step3)
+大体2分くらいで書けるようになった．
+
+そろそろ復習をしないと定着しなさそうなので，(無理のない範囲で)レビュー依頼されたタイミングで一度自分でも解いてからコードを読むのをちょっとやってみようと思う．
