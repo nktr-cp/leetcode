@@ -51,5 +51,25 @@ public:
 
 これ問題がミスリーディングですかね，どうでしょう．
 
-## 時間・空間計算量 (step2)
+## 時間・空間計算量 (step1)
 時間計算量はO(len(s))．空間計算量もO(len(s)) ("{{{{{{" などのケースが最悪)．
+
+## 考えたこと (step2)
+まずパッと思いつくこととして，"({["で条件分岐が3回繰り返されている点．
+
+これは事前にハッシュマップを作ってchar to charの関係を作っておけば簡略化できそう．
+`[]`オペレーターでアクセスすると，const変数に対してこのオペレーターは使えないと怒られてしまった (キーが存在する時に要素を追加してしまうので)．
+
+https://stackoverflow.com/questions/13354394/reading-object-from-const-unordered-map
+
+コメント集を見ると，異常ケースにも配慮しましょうというのが出てくる．書く分にはassertして変なのを入れられたら即abortが楽な気がするが，ちゃんとしたメッセージをthrowしておく方が利用者視点では便利だと思うので，throwするようにしてみる．
+
+std::stringにもcontainsメソッドが実装されているらしい (C++23)．これも使った方が綺麗になりそうなので使ってみる．
+
+https://cpprefjp.github.io/reference/string/basic_string/contains.html
+
+あとは，スタックの変数名には何が積まれるのかを書く方が親切．
+
+https://hayapenguin.com/notes/LeetCode/20/ValidParentheses
+
+以上を踏まえて書き直した．
