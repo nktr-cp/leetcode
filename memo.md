@@ -69,3 +69,38 @@ a->next = a;
 
 ## 時間・空間計算量 (step1)
 時間計算量O(len(list))，空間計算量O(1)
+
+## 考えたこと (step2)
+まあロジックはいいと思うのだけど，いかんせん変数名がわかりにくく，特に`return previous`に至っては全然必然性を感じられないので，この点に注意して他の人のコードを見てみる．
+
+コメント集を読んでみる．
+
+https://discord.com/channels/1084280443945353267/1295357747545505833/1298524551592018003
+
+これがとてもよく理解できた．確かに，作業のイメージは，前からぽこぽこノードを外して，新しい鎖にくっつける感じ．
+
+再帰で書く解法が散見された．自分的にはこれ再帰なの？って感覚があったが，確かに読んでみるとすっきり書ける．
+
+引っ掛かりポイントは，先頭を除いた先をreverseしたものを仮に貰えたとして，ひっくり返した先頭，つまり元のリストの末尾が返ってくるじゃん，という懸念があったが，reverseした後の末尾へのアクセスは，元の先頭のnextを保存しておくことで達成できることに気づき，納得した (下のコードみたいな話)．
+
+```cpp
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        // base case
+        if (!head || !head->next) {
+            return head;
+        }
+
+        ListNode* reversed_tail = head;
+        // ここで取っておけば，reverse後の末尾のノードへのアクセスが持っておける
+        ListNode* child_tail = head->next;
+        ListNode* reversed_head = this->reverseList(head->next);
+        child_tail->next = reversed_tail;
+        reversed_tail->next = nullptr;
+        return reversed_head;
+    }
+};
+```
+
+まあ，自分はこの問題に再帰はちょっとやりすぎかなと感じた．
