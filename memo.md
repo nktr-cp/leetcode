@@ -18,4 +18,31 @@ addだけで，deleteはないので，top kよりも小さい要素は保持し
 時間計算量: 最初のpriority_queueの構築に，O(len(nums) log(len(nums)))かかって (ここはheap sortをしているので)，addクエリをQ回としたときに，O(Q log k)かかる．
 従って，O(len(nums) log(len(nums)) + Q log k)が時間計算量．
 
-空間計算量: 最大使用しているところだと，O(len(nums))．この場合O(len(nums))と書くのか，O(k)なのかわからない．そもそもサイズがkを超えたら即popする方が良くて，この方法なら議論の余地なくO(k)になる．
+空間計算量: 最大使用しているところだと，O(len(nums))．この場合O(len(nums))と書くのか，O(k)なのかわからない．そもそもサイズがkを超えたら即popする方が良くて，この方法なら素直にO(k)になる．
+
+## 考えたこと (step2)
+まず，既存のヒープのトップと`val`引数との大小関係比較をサボってとりあえずpushすると，コード自体はかなり簡潔になる．
+
+```cpp
+int add(int val) {
+	top_k_.push(val);
+
+	if (top_k_.size() > k_) {
+		assert(top_k_.size() == k_ + 1);
+		top_k_.pop();
+	}
+
+	return top_k_.top();
+}
+```
+
+ただ，これはプログラム全体のパフォーマンスに充分効いてくる気がするので，ちょっと憚られるのだが，人のコードを読むとこうしていて，うーん．
+
+https://hayapenguin.com/notes/LeetCode/703/KthLargestElementInAStream
+
+https://github.com/BumbuShoji/Leetcode/pull/9/files
+
+https://github.com/rinost081/LeetCode/pull/9/files
+
+まあ，この問題の制約だと定数倍が気になるようなシビアさではないし，かなり書くのが楽になるので，自分もそうすることにした．
+
