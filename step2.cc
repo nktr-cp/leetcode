@@ -1,14 +1,10 @@
 class KthLargest {
   int k_;
-  std::priority_queue<int, std::vector<int>, std::greater<int>> top_k_;
+  priority_queue<int, vector<int>, greater<int>> top_k_;
 public:
   KthLargest(int k, vector<int>& nums) : k_(k) {
       for (int n: nums) {
-          top_k_.push(n);
-
-          if (top_k_.size() > k) {
-              top_k_.pop();
-          }
+          add(n);
       }
   }
   
