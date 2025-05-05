@@ -1,8 +1,12 @@
 class KthLargest {
-  int k_;
+  size_t k_;
   priority_queue<int, vector<int>, greater<int>> top_k_;
 public:
-  KthLargest(int k, vector<int>& nums) : k_(k) {
+  KthLargest(int k, vector<int>& nums) {
+      if (k <= 0) {
+          throw std::invalid_argument("k must be positive");
+      }
+      k_ = static_cast<size_t>(k);
       for (int n: nums) {
           add(n);
       }
