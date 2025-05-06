@@ -72,3 +72,8 @@ https://cpprefjp.github.io/reference/compare/strong_ordering.html
 サンプルコードで戻り値の型が後置されていたりして，C++98ばっかり書いてきたせいでもはやC++のコードか判別できないくらい知らない．
 
 https://cpprefjp.github.io/lang/cpp11/trailing_return_types.html
+
+## step3 (考えたこと)
+毎回構造体を定義するのが面倒だったので，pairで解いた．
+
+大体2分半くらい．
