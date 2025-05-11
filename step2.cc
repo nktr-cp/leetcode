@@ -1,14 +1,14 @@
 class Solution {
   public:
       vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
-          using T = tuple<int,int,int>; // sum, i, j, respectively
+          using T = tuple<int, int, int>; // sum, i, j, respectively
           priority_queue<T, vector<T>, greater<T>> min_heap;
   
           min_heap.push({nums1[0] + nums2[0], 0, 0});
           vector<vector<int>> result_pairs;
           result_pairs.reserve(k);
   
-          set<pair<int,int>> visited;
+          set<pair<int, int>> visited;
           while (!min_heap.empty() && result_pairs.size() < k) {
               auto [sum, i, j] = min_heap.top();
               min_heap.pop();
