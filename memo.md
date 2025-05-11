@@ -44,3 +44,16 @@ sumがコストになっていて，こういう解釈をすれば自明にダ�
 
 https://stackoverflow.com/questions/15160889/how-can-i-make-an-unordered-set-of-pairs-of-integers-in-c
 
+## 時間・空間計算量 (step2)
+### 空間計算量
+一回のpopあたりresultに追加されるためpopの回数はk回で，一回のpopに対して高々二回のpushが起こるためO(k)
+
+### 時間計算量
+O(k logk)
+
+## 考えたこと (step3)
+3分くらいで書けるようになった．
+
+ふとemplaceが使えるなと言うことに気づいたので，emplaceを使って書いてみた．
+
+一見して全然ダイクストラが適用できると気づけなかったので，典型のストックに入れられるように練習を重ねていきたい．
