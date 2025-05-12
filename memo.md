@@ -57,7 +57,6 @@ public:
             }
         }
         assert(false);
-        return vector<int>();
     }
 };
 ```
@@ -89,7 +88,6 @@ public:
             }
         }
         assert(false);
-        return vector<int>();
     }
 };
 ```
