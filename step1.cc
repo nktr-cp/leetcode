@@ -16,6 +16,5 @@ public:
         }
 
         assert(false);
-        return vector<int>();
     }
 };
