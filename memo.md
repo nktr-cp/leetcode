@@ -11,7 +11,5 @@
 
 ただし，変数の命名にかなり悩んで，相当改善の余地があると思う．
 
-## 時間・空間計算量 (step2)
-空間計算量はO(strs.length)．
-
-時間計算量は，n := strs.length, m := strs[i].lengthとして，O(n mlogm)．
+## 時間・空間計算量 (step1)
+n := strs.length, m := strs[i].lengthとして，時間計算量はO(nmlogm)，空間計算量はO(nm)．
