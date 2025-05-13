@@ -13,3 +13,18 @@
 
 ## 時間・空間計算量 (step1)
 n := strs.length, m := strs[i].lengthとして，時間計算量はO(nmlogm)，空間計算量はO(nm)．
+
+## 考えたこと (step2)
+https://github.com/SuperHotDogCat/coding-interview/pull/13/files
+https://github.com/hayashi-ay/leetcode/pull/19/files
+https://github.com/nittoco/leetcode/pull/13/files
+
+発想は大体同じことをしている．結構思考のプロセスが近い気がしていて，
+
+> 入力文字列は小文字アルファベットだけなので，サイズ26のvectorを作ればそれをキーにして動かせる気がする．
+
+この配列から文字列を復元してキーにするというのが考えられていた．これはソート済みの文字列をランレングス圧縮したものになって，quick sortしているところがbucket sortになってるだけなので，まあ本質的に変わらないかという気持ちになった．
+
+色々読んで変数名を検討する．自分はanagramという英単語を知らなかったが，これがぴったり使えそう．
+
+正確に表現するなら，`sorted_string_to_anagrams`とかになる気がするが，これはちょっと長すぎて嫌だなと思ってしまう．この辺の感覚はみなさんどうなんでしょう．
