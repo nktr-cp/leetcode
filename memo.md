@@ -13,7 +13,7 @@ https://github.com/irohafternoon/LeetCode/pull/16/files
 https://github.com/Ryotaro25/leetcode_first60/pull/15/files
 https://github.com/colorbox/leetcode/pull/28/files
 
-よく考えると諸々読み取り専用でいいところがあって，std::string_viewでよかった．
+よく考えると諸々読み取り専用でいいところがあって，std::string_viewでよかった．ただ，使い方が適切なのかは不安．
 
 canonicalという名前がいい，
 
@@ -23,3 +23,6 @@ https://support.google.com/mail/thread/228350356/plus-sign-in-gmail-address?hl=e
 .とか+のルールはgmailのものみたい．RFCでは@複数個は認められてなさそう．rfindは使わなくていいや．
 
 それはそうとして@あるなしのバリデーションはあってもいい．ライブラリ化するなら，戻り値はoptionにしたいけど，この感覚はどうなんだろう．
+
+## 考えたこと (step3)
+2分40秒くらいで解けるようになった．

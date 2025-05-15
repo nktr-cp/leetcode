@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string get_canonical_local_name(const string_view& local_name) {
+    string GetCanonicalLocalName(const string_view& local_name) {
         string reduced_name;
         for (const char c : local_name) {
             if (c == '.') {
@@ -18,7 +18,7 @@ public:
         unordered_set<string> email_addresses;
         for (const string& email : emails) {
             size_t at_index = email.find('@');
-            string canonical_local = get_canonical_local_name(string_view(email).substr(0, at_index));
+            string canonical_local = GetCanonicalLocalName(string_view(email).substr(0, at_index));
             string_view domain = string_view(email).substr(at_index + 1);
             email_addresses.insert(canonical_local + '@' + string(domain));
         }
