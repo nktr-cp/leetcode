@@ -10,7 +10,7 @@ class Solution {
             int next_i = i + dx[k];
             int next_j = j + dy[k];
 
-            if (next_i < m && next_j < n && !visited[next_i][next_j] && grid[next_i][next_j] == '1') {
+            if (0 <= next_i && next_i < m && 0 <= next_j && next_j < n && !visited[next_i][next_j] && grid[next_i][next_j] == '1') {
                 VisitAllLand(next_i, next_j, visited, grid);
             }
         }

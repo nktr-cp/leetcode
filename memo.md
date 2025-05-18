@@ -17,11 +17,7 @@ https://github.com/irohafternoon/LeetCode/pull/19/files#r2040929359
 
 command-query separation知らなかった，意識してみたい．
 
-```cpp
-if (next_i < m && next_j < n && !visited[next_i][next_j] && grid[next_i][next_j] == '1') 
-```
-
-これを関数化するのも良さそう．引数が多いのがちょっとつらいか？
+validかどうかの判定を関数化するのも良さそう．
 
 https://github.com/irohafternoon/LeetCode/pull/19/files#r2041274965
 

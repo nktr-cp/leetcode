@@ -45,4 +45,3 @@ public:
         return island_count;
     }
 };
-
