@@ -1,5 +1,5 @@
 class Solution {
-    void visit_all_land(int i, int j, vector<vector<int>>& visited, const vector<vector<char>>& grid) {
+    void VisitAllLand(int i, int j, vector<vector<int>>& visited, const vector<vector<char>>& grid) {
         const size_t m = grid.size();
         const size_t n = grid.front().size();
         const int dx[4] = {1, -1, 0, 0};
@@ -11,7 +11,7 @@ class Solution {
             int next_j = j + dy[k];
 
             if (next_i < m && next_j < n && !visited[next_i][next_j] && grid[next_i][next_j] == '1') {
-                visit_all_land(next_i, next_j, visited, grid);
+                VisitAllLand(next_i, next_j, visited, grid);
             }
         }
     }
@@ -27,7 +27,7 @@ public:
                 if (grid[i][j] == '0' || visited[i][j]) {
                     continue;
                 }
-                visit_all_land(i, j, visited, grid);
+                VisitAllLand(i, j, visited, grid);
                 ++number_of_islands;
             }
         }
