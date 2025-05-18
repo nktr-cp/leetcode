@@ -41,3 +41,6 @@ int[]はPODだが，vectorはPODでない．ポインタはPODだが参照はPOD
 https://en.cppreference.com/w/cpp/language/aggregate_initialization
 
 こういうのが使えたりするらしい．
+
+## 考えたこと (step3)
+5分くらいで書けるようになった．

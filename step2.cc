@@ -14,7 +14,9 @@ public:
         int rows = grid.size();
         int columns = grid.front().size();
 
-        constexpr array<pair<int, int>, 4> directions = {{{1, 0}, {0, 1}, {-1, 0}, {0, -1}}};
+        constexpr array<pair<int, int>, 4> directions = {{
+            {1, 0}, {0, 1}, {-1, 0}, {0, -1}
+        }};
         visited[row][column] = 1;
         for (auto [dr, dc] : directions) {
             int next_row = row + dr;
