@@ -41,3 +41,33 @@ https://www.ibm.com/docs/en/xffbg/121.141?topic=appendix-ascii-ebcdic-character-
 これ，今回は文字列長が同じなので，ハミング距離の方が適切だった．
 
 実行時間が短く済んでいるコードを見ると，隣接リストを作らずに逐次推移先を計算しているよう．まあこれは別にいいか．
+
+## 考えたこと (step3)
+6分くらいで書けるようになった．
+
+step2での，
+
+```cpp
+queue<pair<size_t, size_t>> candidates;
+vector<uint8_t> marked(num_words);
+for (size_t i = 0; i < num_words; ++i) {
+	if (CanConnect(beginWord, wordList[i])) {
+		candidates.emplace(2, i);
+		marked[i] = 1;
+	}
+}
+```
+
+ここが隣接リストを作る時に同時にやれることに気づいたので，まとめてみた．
+
+ただ，これをすると，indexのペアを探索する上では自然な書き方であるはずの，
+
+```cpp
+for (size_t i = 0; i + 1 < num_words; ++i) {
+```
+
+が動かなくなってしまって，パズルを作ってしまっている気がする．
+
+もう一点，signedとunsignedの使い分けを悩む．
+
+`-Wall -Wextra`を前提に2年くらいコードを書いているせいでコンパイラ警告に対してかなり敏感になっていて，やりすぎなような気もする．
