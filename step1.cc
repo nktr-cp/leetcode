@@ -20,24 +20,24 @@ public:
             return 0;
         }
 
-        vector<TreeNode*> same_depth_node;
-        same_depth_node.push_back(root);
+        vector<TreeNode*> same_depth_nodes;
+        same_depth_nodes.push_back(root);
         int depth = 1;
-        while (!same_depth_node.empty()) {
-            vector<TreeNode*> next_depth_node;
-            for (const auto node : same_depth_node) {
+        while (!same_depth_nodes.empty()) {
+            vector<TreeNode*> next_depth_nodes;
+            for (const auto node : same_depth_nodes) {
                 if (IsLeaf(node)) {
                     return depth;
                 }
                 if (node->left) {
-                    next_depth_node.push_back(node->left);
+                    next_depth_nodes.push_back(node->left);
                 }
                 if (node->right) {
-                    next_depth_node.push_back(node->right);
+                    next_depth_nodes.push_back(node->right);
                 }
             }
             ++depth;
-            same_depth_node = move(next_depth_node);
+            same_depth_nodes = move(next_depth_nodes);
         }
 
         assert(false);
